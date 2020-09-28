@@ -13,18 +13,17 @@ pid_t pid2;
 int state;
 
 int main() {
+    chrono::milliseconds sleeptime(500);
     pid1 = fork();
-
-    
     if (pid1 == 0) {    //child process
         while(true) {
             cout << "A" << endl;
-            sleep(0.5);
+            this_thread::sleep_for(sleeptime);
         }
     } else if (pid1 > 0) { //parent process
         while(true) {
             cout << "B" << endl;
-            sleep(0.5);
+            this_thread::sleep_for(sleeptime);
         }
     } else {
         cout << "fork failed" << endl;
