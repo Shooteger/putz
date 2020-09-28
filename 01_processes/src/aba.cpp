@@ -19,12 +19,12 @@ int main() {
     if (pid1 == 0) {    //child process
         while(true) {
             cout << "A" << endl;
-            sleep(1);
+            sleep(0.5);
         }
     } else if (pid1 > 0) { //parent process
         while(true) {
             cout << "B" << endl;
-            sleep(1);
+            sleep(0.5);
         }
     } else {
         cout << "fork failed" << endl;
