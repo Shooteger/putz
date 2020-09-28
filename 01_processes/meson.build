@@ -1,7 +1,7 @@
-project('aba', 'cpp',
+project('processes', 'cpp',
         license : ['Boost'],
         version : '0.1',
-        default_options : ['cpp_std=c++2a', 'warning_level=3', 'werror=true'])
+        default_options : 'cpp_std=c++17')
 
 # thread_dep = dependency('threads')
 

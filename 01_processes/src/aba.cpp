@@ -28,17 +28,17 @@ int main() {
     pid1 = fork();
     if (pid1 == 0) {    //child process
         if (env_aba_letter_a) {
-            execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes_build/charout", "charout", env_aba_letter_a);
+            execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes/build/charout", "charout", env_aba_letter_a);
         } else {
-            execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes_build/charout", "charout", "A");
+            execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes/build/harout", "charout", "A");
         }
     } else {
         pid2 = fork();
         if (pid2 == 0) { 
             if (env_aba_letter_b) {
-                execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes_build/charout", "charout", env_aba_letter_b);
+                execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes/build/charout", "charout", env_aba_letter_b);
             } else {
-                execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes_build/charout", "charout", "B");
+                execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes/build/charout", "charout", "B");
             }
         } else {
             this_thread::sleep_for(3s);
