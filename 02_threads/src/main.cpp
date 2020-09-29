@@ -16,7 +16,7 @@ class Car {
             int sleep_time = dis(gen);
             this_thread::sleep_for(chrono::milliseconds(sleep_time));
             roundCar++;
-            cout << "Car: " << car_type << "; Round: " << roundCar << "\n" << flush;
+            cout << "Car: " << car_type << "; Round: "  << roundCar << " Time: " << (sleep_time / double(1000))  << "s\n" << flush;
         }
     };
 };
@@ -30,14 +30,14 @@ void letCarRace(string car_type) {
         int sleep_time2 = dis(gen);
         this_thread::sleep_for(chrono::milliseconds(sleep_time2));
         round++;
-        cout << "Car: " << car_type << "; Round: " << round << "\n" << flush;
+        cout << "Car: " << car_type << "; Round: " << round << " Time: " << (sleep_time2 / double(1000)) << "s\n" << flush;
     }
 }
 
 int main() {
     Car car_object;
 
-    thread car1 (letCarRace, "lada taiga");     
+    thread car1 (letCarRace, "Porsche Cayman S");     
     thread car2 (car_object, "Opel Corsa");
     car1.join();
     car2.join();
