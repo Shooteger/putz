@@ -30,7 +30,7 @@ int main() {
         if (env_aba_letter_a) {
             execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes/build/charout", "charout", env_aba_letter_a);
         } else {
-            execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes/build/harout", "charout", "A");
+            execl("/home/maurice/Documents/nvs5/exercises/putz/01_processes/build/charout", "charout", "A");
         }
     } else {
         pid2 = fork();
