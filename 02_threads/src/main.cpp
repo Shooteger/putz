@@ -1,25 +1,34 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <random>
 
 using namespace std;
 
 class Car {
     public:
     void operator()(string car_type) {
-        int round = 0;
+        int roundCar = 0;
+        random_device r1;
+        mt19937 gen{r1()};
         while(true) {
-            this_thread::sleep_for(chrono::seconds(1));
-            round++;
-            cout << "Car: " << car_type << "; Round: " << round << "\n" << flush;
+            uniform_real_distribution<> dis{1000, 10000};
+            int sleep_time = dis(gen);
+            this_thread::sleep_for(chrono::milliseconds(sleep_time));
+            roundCar++;
+            cout << "Car: " << car_type << "; Round: " << roundCar << "\n" << flush;
         }
     };
 };
 
 void letCarRace(string car_type) {
     int round = 0;
+    random_device r2;
+    mt19937 gen{r2()};
     while(true) {
-        this_thread::sleep_for(chrono::seconds(1));
+        uniform_real_distribution<> dis{1000, 10000};
+        int sleep_time2 = dis(gen);
+        this_thread::sleep_for(chrono::milliseconds(sleep_time2));
         round++;
         cout << "Car: " << car_type << "; Round: " << round << "\n" << flush;
     }
