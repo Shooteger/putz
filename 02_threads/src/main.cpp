@@ -12,8 +12,7 @@ class Car {
         while(true) {
             this_thread::sleep_for(chrono::seconds(1));
             round++;
-            cout << "Car: " << car_type << "; Round: " << round << endl;
-            cout << flush;
+            cout << "Car: " << car_type << "; Round: " << round << "\n" << flush;
         }
     };
 };
