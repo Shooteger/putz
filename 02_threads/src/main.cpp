@@ -64,9 +64,12 @@ int main() {
     double car1Time = car1.get();
     double car2Time = car_object.get_total_time();
 
+    cout << car1Time << "that was car1time without function" << endl;
+    cout << "car2 here" << car2Time << endl;
+
     if (car1Time > car2Time) {
-        cout << "Winner: " << "Total Time: " << car2Time;
+        cout << "Winner: Porsche Cayman S\n" << "Total Time: " << car2Time << flush;
     } else {
-        cout << "Winner: " << "Total Time: " << car1Time;
+        cout << "Winner: Opel Corsa\n" << "Total Time: " << car1Time << flush;;
     }
 }
