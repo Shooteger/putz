@@ -20,7 +20,7 @@ class Depositer {
     private:
         Account& account;
     public:
-        Depositer(Account& account_ref)  : account(account_ref);
+        Depositer(Account& account_ref)  : account(account_ref) {}
 
         void operator()() {
             for (int i{0}; i < 5; ++i) {
@@ -28,6 +28,6 @@ class Depositer {
                 account.deposit(1);
             }
         }
-}
+};
 
 #endif

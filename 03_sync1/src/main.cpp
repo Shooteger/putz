@@ -24,6 +24,16 @@ int main() {
     t2.join();
     */
 
-    //Punkt 3
-    
+    //Punkt 3-7
+    Account accountT1{0};
+    Depositer d1{accountT1};
+    Depositer d2{accountT1};
+
+    thread t11{ref(d1)};
+    thread t22{ref(d2)};
+
+    t11.join();
+    t22.join();
+
+    cout << accountT1.get_balance() << "\n" << flush;
 }
