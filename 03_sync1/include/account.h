@@ -16,4 +16,18 @@ class Account {
         bool withdraw(int amount);
 };
 
+class Depositer {
+    private:
+        Account& account;
+    public:
+        Depositer(Account& account_ref)  : account(account_ref);
+
+        void operator()() {
+            for (int i{0}; i < 5; ++i) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(100) * i);
+                account.deposit(1);
+            }
+        }
+}
+
 #endif

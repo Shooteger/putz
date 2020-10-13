@@ -16,9 +16,14 @@ int main() {
     */
 
     //Punkt 2
+    /*
     Account accountT{1};
     thread t1{[&]() { cout << boolalpha << accountT.withdraw(1) << "\n" << flush; }};
     thread t2{[&]() { cout << boolalpha << accountT.withdraw(1) << "\n" << flush; }};
     t1.join();
     t2.join();
+    */
+
+    //Punkt 3
+    
 }
