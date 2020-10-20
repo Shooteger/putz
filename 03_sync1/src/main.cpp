@@ -2,10 +2,11 @@
 #include <thread>
 
 #include "account.h"
+#include "CLI11.hpp"
 
 using namespace std;
 
-int main() {
+int main(int argc, char** argv) {
     
     //Punkt 1
     /*
@@ -24,6 +25,7 @@ int main() {
     t2.join();
     */
 
+    /*
     //Punkt 3-7
     Account accountT1{0};
     Depositer d1{accountT1};
@@ -36,4 +38,14 @@ int main() {
     t22.join();
 
     cout << accountT1.get_balance() << "\n" << flush;
+    */
+
+    CLI::App app("Account App");
+    int balance{0};
+
+    app.add_option("balance", balance, "Initial Balance" )->required();
+    
+    int deposit{5};
+    app.add_option("-d,--deposit", deposit, "Count of deposists", true);
+    CLI11_PARSE(app, argc, argv)
 }
