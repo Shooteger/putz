@@ -48,4 +48,15 @@ int main(int argc, char** argv) {
     int deposit{5};
     app.add_option("-d,--deposit", deposit, "Count of deposists", true);
     CLI11_PARSE(app, argc, argv)
+
+    try {
+        app.parse(argc, argv);
+    } catch (const CLI::ParseError &e) {
+        return app.exit(e);
+    }
+
+    Account acc{balance};
+    acc.deposit(deposit);
+
+    cout << acc.get_balance() << endl;
 }
