@@ -6,6 +6,7 @@
 
 #include "work_queue.h"
 #include "work_packet.h"
+#include "CLI11.hpp"
 
 using namespace std;
 
@@ -27,8 +28,24 @@ void worker(int id, WorkQueue& wq) {
     }
 }
 
-int main() {
-    WorkQueue wq{10};
+int main(int argc, char** argv) {
+
+    CLI::App app("Boss and worker simulation");
+    int size;
+
+    app.add_option("size", size, "Size of the queue" )->required();
+    
+    string tmp = "";
+    app.add_option("-h,--help", tmp, "Print this help message and exit", true);
+    CLI11_PARSE(app, argc, argv);
+
+    try {
+        app.parse(argc, argv);
+    } catch (const CLI::ParseError &e) {
+        return app.exit(e);
+    }
+
+    WorkQueue wq{size};
 
     int cnt{0};
 
