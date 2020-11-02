@@ -10,7 +10,7 @@ class WorkPacket {
         void set_id(int new_id) {
             this->id = new_id;
         }
-        const int get_id() {
+        int get_id() {
             return this->id;
         }
 };

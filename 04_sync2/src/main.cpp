@@ -31,12 +31,10 @@ void worker(int id, WorkQueue& wq) {
 int main(int argc, char** argv) {
 
     CLI::App app("Boss and worker simulation");
-    int size;
+    long unsigned int size;
 
     app.add_option("size", size, "Size of the queue" )->required();
     
-    string tmp = "";
-    app.add_option("-h,--help", tmp, "Print this help message and exit", true);
     CLI11_PARSE(app, argc, argv);
 
     try {

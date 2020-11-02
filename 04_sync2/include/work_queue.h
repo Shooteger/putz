@@ -9,12 +9,12 @@
 
 class WorkQueue {
     private:
-        int queue_size;
+        long unsigned int queue_size;
         std::mutex mtx;
         std::condition_variable not_empty;
         std::queue<WorkPacket> work_packets;
     public:
-        WorkQueue(int qs) : queue_size{qs} {
+        WorkQueue(long unsigned int qs) : queue_size{qs} {
             if (queue_size <= 0) {
                 throw std::logic_error("The size of the queue must be greater than 0!");
             }
