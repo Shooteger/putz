@@ -21,4 +21,4 @@ class WorkQueue {
         }
         void push(WorkPacket packet);
         WorkPacket pop();
-}
+};
