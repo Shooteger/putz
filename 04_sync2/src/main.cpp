@@ -21,8 +21,9 @@ void worker(int id, WorkQueue& wq) {
         auto wp = wq.pop();
         cout << "W" << id << ": Got work packet " << wp.get_id() << "\n";
         this_thread::sleep_for(chrono::milliseconds((int) timeout));
-        cout << "W" << id << ": Processed work packet" << wp.get_id() << "\n";
+        cout << "W" << id << ": Processed work packet" << wp.get_id() << " (";
         cout << fixed << setprecision(2);
+        cout << timeout / 1000 << "s)\n";
     }
 }
 
@@ -31,16 +32,22 @@ int main() {
 
     int cnt{0};
 
+    random_device rd;
+    mt19937 gen{rd()};
+    uniform_int_distribution<> dis{0, 1000};
+    float timeout;
+
     thread t1{worker, 1, ref(wq)};
     thread t2{worker, 2, ref(wq)};
     thread t3{worker, 3, ref(wq)};
 
     while (true) {
-        //time_out = dis(gen);
+        timeout = dis(gen);
         this_thread::sleep_for(chrono::milliseconds((int) 500));
         wq.push(WorkPacket{cnt});
-        cout << "B: Submitted work packet " << cnt << "\n";
+        cout << "B: Submitted work packet " << cnt << " (";
         cout << fixed << setprecision(2);
+        cout << timeout / 1000 << "s)\n";
         cnt++;
     }
 
