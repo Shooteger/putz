@@ -3,7 +3,6 @@
 #include <thread>
 
 #include "philosopher.h"
-#include "CLI11.hpp"
 
 using namespace std;
 
