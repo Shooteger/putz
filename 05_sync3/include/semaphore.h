@@ -9,6 +9,7 @@ class Semaphore {
         void release();
         int available_permits();
     private:
+        int cnt;
         std::condition_variable not_empty;
         std::mutex mtx;
 };

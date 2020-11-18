@@ -2,7 +2,7 @@
 #include <initializer_list>
 
 #include "philosopher.h"
-#include "utils.h";
+#include "utils.h"
 
 using namespace std;
 
