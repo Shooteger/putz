@@ -6,7 +6,7 @@
 
 class Philosopher {
     public:
-        Philosopher(int new_id, std::mutex* right_f, std::mutex* left_f) : id{new_id}, right_fork{right_f}, left_fork{left_f} {};
+        Philosopher(int new_id, std::mutex* right_f, std::mutex* left_f) : left_fork{left_f}, right_fork{right_f}, id{new_id} {};
         void operator()();
     private:
         std::mutex* left_fork;

@@ -19,11 +19,11 @@ int main() {
     Philosopher p4{4, &m4, &m5};
     Philosopher p5{5, &m5, &m1};  
 
-    thread t1{[&](){ p1; }};
-    thread t2{[&](){ p2; }};
-    thread t3{[&](){ p3; }};
-    thread t4{[&](){ p4; }};
-    thread t5{[&](){ p5; }};
+    thread t1{[&](){ p1(); }};
+    thread t2{[&](){ p2(); }};
+    thread t3{[&](){ p3(); }};
+    thread t4{[&](){ p4(); }};
+    thread t5{[&](){ p5(); }};
 
     t1.join();
     t2.join();
