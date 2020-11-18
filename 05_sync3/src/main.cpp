@@ -3,10 +3,28 @@
 #include <thread>
 
 #include "philosopher.h"
+#include "CLI11.hpp"
 
 using namespace std;
 
-int main() {
+int main(int argc, char** argv) {
+
+    CLI::App app("Dining philosophers simulation");
+    long unsigned int size;
+    int nodeadlock;
+    int livelock;
+
+    app.add_option("nodeadlock", nodeadlock, "Prevent a deadlock at all" )->required();
+    app.add_option("livelock", livelock, "Prevent a deadlock at all" )->required();
+    
+    CLI11_PARSE(app, argc, argv);
+
+    try {
+        app.parse(argc, argv);
+    } catch (const CLI::ParseError &e) {
+        return app.exit(e);
+    }
+
     mutex m1;
     mutex m2;
     mutex m3;
