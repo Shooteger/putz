@@ -43,11 +43,15 @@ int main(int argc, char* argv[]) {
 
     App app{"Factor numbers"};
     app.add_option("number", numbers, "numbers to factor")->check(CLI::Number);
-    app.add_flag("-a,--async", "async");
+    auto async_flag = app.add_flag("-a,--async", "async");
 
     CLI11_PARSE(app, argc, argv);
-    
+
     thread res_thread{calc_res, ref(numbers), ref(async_num_vec)};
+    
+    if (*async_flag) {
+        cout << "async flag set\n";
+    }
 
     res_thread.join();    
 }
