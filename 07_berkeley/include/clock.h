@@ -3,6 +3,8 @@
 #include <iostream>
 #include <chrono>
 
+#include "timeutils.h"
+
 class Clock {
     public:
         Clock(std::string name);

@@ -2,8 +2,13 @@
 #include <chrono>
 #include <thread>
 
+#include "clock.h"
+
 using namespace std;
 
-int main(int argc, char* argv[]) {
-    return 0;
+int main() {
+    
+    thread clock{Clock("testclock")};
+    clock.join();
+
 }
