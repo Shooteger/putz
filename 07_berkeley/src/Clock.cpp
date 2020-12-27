@@ -33,8 +33,8 @@ Clock::Clock(string name_, int hours_, int minutes_, int seconds_) {
     curr_time = ::set_time(curr_time, hours_, minutes_, seconds_);
 }
 
-void Clock::set_time(int hours, int minutes, int secods) {
-    curr_time = ::set_time(curr_time, hours, minutes, secods);
+void Clock::set_time(int hours, int minutes, int seconds) {
+    curr_time = ::set_time(curr_time, hours, minutes, seconds);
 }
 
 tuple<int, int, int> Clock::get_time() {

@@ -3,16 +3,15 @@
 #include <iostream>
 #include <chrono>
 #include <tuple>
-
-#include "timeutils.h"
+#include <mutex>
 
 class Clock {
     public:
         Clock(std::string name);
-        Clock(std::string name_, int hours_, int minutes_, int secods_);
+        Clock(std::string name_, int hours_, int minutes_, int seconds_);
 
         void operator()();
-        void set_time(int hours, int minutes, int secods);
+        void set_time(int hours, int minutes, int seconds);
         std::tuple<int, int, int> get_time();
 
     private:
