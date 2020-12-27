@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <chrono>
+#include <tuple>
 
 #include "timeutils.h"
 
@@ -12,6 +13,7 @@ class Clock {
 
         void operator()();
         void set_time(int hours, int minutes, int secods);
+        std::tuple<int, int, int> get_time();
 
     private:
         std::string name;

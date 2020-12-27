@@ -2,6 +2,7 @@
 #include <chrono>
 #include <thread>
 #include <mutex>
+#include <tuple>
 
 #include "clock.h"
 #include "timeutils.h"
@@ -34,4 +35,8 @@ Clock::Clock(string name_, int hours_, int minutes_, int seconds_) {
 
 void Clock::set_time(int hours, int minutes, int secods) {
     curr_time = ::set_time(curr_time, hours, minutes, secods);
+}
+
+tuple<int, int, int> Clock::get_time() {
+    return ::get_time(curr_time);
 }
