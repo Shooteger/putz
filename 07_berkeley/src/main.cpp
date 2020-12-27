@@ -4,9 +4,19 @@
 
 #include "CLI11.hpp"
 #include "clock.h"
+#include "pipe.h"
 
 using namespace std;
 using namespace CLI;
+
+class Chnanel {
+    public:
+        Pipe<long>& get_pipe1() {return pipe1; }
+        Pipe<long>& get_pipe2() {return pipe2; }
+    private:
+        Pipe<long> pipe1;
+        Pipe<long> pipe2;
+};
 
 class TimeSlave {
     public:
