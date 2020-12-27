@@ -40,3 +40,7 @@ void Clock::set_time(int hours, int minutes, int seconds) {
 tuple<int, int, int> Clock::get_time() {
     return ::get_time(curr_time);
 }
+
+long Clock::to_time() {
+    return chrono::system_clock::to_time_t(curr_time);
+}

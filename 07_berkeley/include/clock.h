@@ -13,6 +13,7 @@ class Clock {
         void operator()();
         void set_time(int hours, int minutes, int seconds);
         std::tuple<int, int, int> get_time();
+        long to_time();
 
     private:
         std::string name;
