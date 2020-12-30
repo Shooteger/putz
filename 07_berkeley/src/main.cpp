@@ -71,7 +71,6 @@ class TimeMaster {
 
                 channel1->get_pipe1() << curr_time.to_time();
                 channel2->get_pipe1() << curr_time.to_time();
-                cout << "test after pipe1 channel 1\n";
 
                 channel1->get_pipe2() >> channel_t1;
                 channel2->get_pipe2() >> channel_t2;
