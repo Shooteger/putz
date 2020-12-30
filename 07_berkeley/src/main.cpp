@@ -49,6 +49,7 @@ class TimeMaster {
         name{name_}, curr_time{name_, hours, minutes, seconds}, channel1{cl1}, channel2{cl500} {}
 
         void operator()() {
+            /* for testing with task 11
             channel1->get_pipe1() << 1u;
             channel2->get_pipe1() << 1u;
             channel1->get_pipe1() << 2u;
@@ -59,6 +60,30 @@ class TimeMaster {
             this_thread::sleep_for(500ms);
             channel1->get_pipe1().close();
             channel2->get_pipe1().close();
+            */
+           while (true) {
+                long avg_req_time;
+                long channel_t1;
+                long channel_t2;
+
+                cout << "Sent out request...\n";
+                cout << name << ": " << curr_time.to_time() << "\n";
+
+                channel1->get_pipe1() << curr_time.to_time();
+                channel2->get_pipe1() << curr_time.to_time();
+                cout << "test after pipe1 channel 1\n";
+
+                channel1->get_pipe2() >> channel_t1;
+                channel2->get_pipe2() >> channel_t2;
+
+                avg_req_time = (curr_time.to_time() + channel_t1 + channel_t2) / 3;
+                cout << "Average response time: " << avg_req_time << "\n";
+
+                channel1->get_pipe1() << curr_time.to_time();
+                channel2->get_pipe1() << curr_time.to_time();
+                this_thread::sleep_for(10s);
+           }
+
         }
 
         void set_channel1(Channel* chan) {

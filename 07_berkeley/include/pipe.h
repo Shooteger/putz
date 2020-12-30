@@ -47,6 +47,6 @@ class Pipe {
         std::queue<T> backend;
         std::mutex mtx;
         std::condition_variable not_empty;
-        long latency;
+        long latency{};
         bool closed{false};
 };

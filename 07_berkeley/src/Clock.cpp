@@ -44,3 +44,7 @@ tuple<int, int, int> Clock::get_time() {
 long Clock::to_time() {
     return chrono::system_clock::to_time_t(curr_time);
 }
+
+void Clock::from_time(long time) {
+    curr_time = chrono::system_clock::from_time_t(time);
+}
