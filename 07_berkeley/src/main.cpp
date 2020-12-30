@@ -76,7 +76,7 @@ class TimeMaster {
                 channel2->get_pipe2() >> channel_t2;
 
                 avg_req_time = (curr_time.to_time() + channel_t1 + channel_t2) / 3;
-                cout << "Average response time: " << avg_req_time << "\n";
+                cout << "Average response time: " << avg_req_time << " ms\n";
 
                 channel1->get_pipe1() << curr_time.to_time();
                 channel2->get_pipe1() << curr_time.to_time();
