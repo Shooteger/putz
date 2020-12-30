@@ -15,7 +15,7 @@ class Clock {
         std::tuple<int, int, int> get_time();
         long to_time();
         void from_time(long time);
-
+        void set_time_monoton(bool no_reset);
     private:
         std::string name;
         std::chrono::time_point<std::chrono::system_clock> curr_time;

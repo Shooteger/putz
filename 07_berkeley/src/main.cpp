@@ -100,10 +100,65 @@ class TimeMaster {
         Channel* channel2;
 };
 
-int main() {
+int main(int argc, char* argv[]) {
     
     //thread clock{Clock("testclock")};
     //clock.join();
+
+/*
+    Channel c1;
+    Channel cl500;
+
+
+    thread tm{TimeMaster{"master", &c1, &cl500}};
+    thread t1{TimeSlave{"slave1", &c1, 0, 10, 0}};
+    thread t2{TimeSlave{"slave2", &cl500, 0, 20, 0}};
+
+    tm.join();
+    t1.join();
+    t2.join();
+*/
+    App app {"Simulate the berkeley-algo"};
+    auto m_flag = app.add_flag("--monotone", "Set monoton mode");
+
+    auto l1_flag = app.add_flag("--latency1", "latency to channel 1 (both directions)");
+    auto l2_flag = app.add_flag("--latency2", "latency to channel 2 (both directions)");
+
+    auto d1_flag = app.add_flag("--deviation1", "deviation of clock of slave 1");
+    auto d2_flag = app.add_flag("--deviation2", "deviation of clock of slave 2");
+    auto dm_flag = app.add_flag("--deviationm", "deviation of clock of master");
+
+    CLI11_PARSE(app, argc, argv);
+
+    try {
+        app.parse(argc, argv);
+    } catch (const CLI::ParseError &e) {
+        return app.exit(e);
+    }
+
+    if (m_flag) {
+
+    }
+
+    if (l1_flag) {
+
+    }
+
+    if (l2_flag) {
+
+    }
+    
+    if (d1_flag) {
+
+    }
+
+    if (d2_flag) {
+
+    }
+
+    if (dm_flag) {
+
+    }
 
     Channel c1;
     Channel cl500;
@@ -116,4 +171,5 @@ int main() {
     tm.join();
     t1.join();
     t2.join();
+
 }

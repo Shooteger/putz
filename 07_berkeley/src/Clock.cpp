@@ -48,3 +48,11 @@ long Clock::to_time() {
 void Clock::from_time(long time) {
     curr_time = chrono::system_clock::from_time_t(time);
 }
+
+void Clock::set_time_monoton(bool no_reset) {
+    if (no_reset) {
+        
+    } else {
+        
+    }
+} 
