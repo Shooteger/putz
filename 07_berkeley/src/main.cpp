@@ -48,6 +48,19 @@ class TimeMaster {
         TimeMaster(string name_, Channel* cl1=nullptr, Channel* cl500 = nullptr, int hours=0, int minutes=0, int seconds=0) : 
         name{name_}, curr_time{name_, hours, minutes, seconds}, channel1{cl1}, channel2{cl500} {}
 
+        void operator()() {
+            channel1->get_pipe1() << 1u;
+            channel2->get_pipe1() << 1u;
+            channel1->get_pipe1() << 2u;
+            channel2->get_pipe1() << 2u;
+            channel1->get_pipe1() << 3u;
+            channel2->get_pipe1() << 3u;
+
+            this_thread::sleep_for(500ms);
+            channel1->get_pipe1().close();
+            channel2->get_pipe1().close();
+        }
+
         void set_channel1(Channel* chan) {
             channel1 = chan;
         }
